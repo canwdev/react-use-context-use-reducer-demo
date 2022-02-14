@@ -1,25 +1,16 @@
-import React, {useState, useReducer} from 'react';
+import React from 'react';
+import Todo from './components/Todo'
+import Todo2 from './components/Todo2'
 import './App.css';
-import BoxA from "./components/BoxA";
-import BoxB from "./components/BoxB";
-import BoxC from "./components/BoxC";
-import MyContext, {reducers, initialState} from './store'
+import {myTimer} from './store'
+
 
 function App() {
-  const [state, dispatch] = useReducer(reducers, initialState);
-
-
   return (
-    <MyContext.Provider value={{state, dispatch}}>
       <div className="App">
-        <BoxA />
-        <BoxB />
-
-        <hr/>
-
-        <BoxC />
+        <Todo timer={myTimer} />
+        <Todo2 timer={myTimer} />
       </div>
-    </MyContext.Provider>
 
   );
 }
